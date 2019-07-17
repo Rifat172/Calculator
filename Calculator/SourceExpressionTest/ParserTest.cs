@@ -20,6 +20,13 @@ namespace SourceExpressionTest
             string[] ArrayExpression = parser.Parse("2+2*2");
             Assert.AreNotEqual(new string[] { "2", "*", "2", "+", "2" }, ArrayExpression);
         }
+        [TestCase("(2.5+0.5)*2",new string[] { "(","2.5","+","0.5",")","*","2"})]
+        public void Parse_CorrectlyExpression_CorrectlyArray(string input, string[] output)
+        {
+            Parser parser = new Parser();
+            string[] ArrayExpression = parser.Parse(input);
+            Assert.AreEqual(output, ArrayExpression);
+        }
         
         [Test]
         public void Parse_DifficultGoodExpression_GoodArray()

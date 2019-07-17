@@ -5,7 +5,7 @@ namespace SourceExpression
 {
     public class Parser
     {
-        string[] ArrayExpression = new string[] { "2", "*", "2", "+", "2" };
+        string[] ArrayExpression;
         public string[] Parse(string exp)
         {
             ArrayExpression = foo(exp);
@@ -15,7 +15,7 @@ namespace SourceExpression
         {
             List<string> arr = new List<string>();
 
-            Regex regex = new Regex(@"\+|\-|\/|\*|\(|\)|[0-9]+");
+            Regex regex = new Regex(@"\+|\-|\/|\*|\(|\)|[0-9]+\.?[0-9]+|[0-9]+");
 
             var matches = regex.Matches(exp);
 
