@@ -6,13 +6,12 @@ namespace RPNAlgorithmTest
     [TestFixture]
     class AlgorithmTest
     {
-        string[] test = new string[] { "2", "+", "2", "*", "2" };
-        [Test]
-        public void DoAlgorithm_CorrectlyResult()
+        [TestCase(new string[] { "2", "2", "+" }, 4)]
+        [TestCase(new string[] { "2", "3", "+" }, 5)]
+        public void DoAlgorithm_CorrectlyResult(string[] test,double res)
         {
             Algorithm alg = new Algorithm(test);
-            double res = alg.Calc();
-            Assert.AreEqual(6, res);
+            Assert.AreEqual(res, alg.Calc());
         }
     }
 }
