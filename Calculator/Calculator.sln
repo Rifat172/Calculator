@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SourceExpression", "Parser\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SourceExpressionTest", "SourceExpressionTest\SourceExpressionTest.csproj", "{7A39196D-6D99-42F5-A21E-713ED578BA23}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPNAlgorithm", "RPNAlgorithm\RPNAlgorithm.csproj", "{2378F9C5-5C33-4B53-A354-A382258DBB40}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPNAlgorithmTest", "RPNAlgorithmTest\RPNAlgorithmTest.csproj", "{8204B763-C80A-4151-B64F-426A96265786}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{7A39196D-6D99-42F5-A21E-713ED578BA23}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A39196D-6D99-42F5-A21E-713ED578BA23}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A39196D-6D99-42F5-A21E-713ED578BA23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2378F9C5-5C33-4B53-A354-A382258DBB40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2378F9C5-5C33-4B53-A354-A382258DBB40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2378F9C5-5C33-4B53-A354-A382258DBB40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2378F9C5-5C33-4B53-A354-A382258DBB40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8204B763-C80A-4151-B64F-426A96265786}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8204B763-C80A-4151-B64F-426A96265786}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8204B763-C80A-4151-B64F-426A96265786}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8204B763-C80A-4151-B64F-426A96265786}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
