@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace RPNAlgorithm
 {
+    /// <summary>
+    /// Алгоритм работает только с Обратной Постфиксной Нотацией(RPN)
+    /// </summary>
     public class Algorithm
     {
         string[] Expression;
@@ -12,7 +15,7 @@ namespace RPNAlgorithm
         }
         public double Calc()
         {
-            Stack<double> stack = new Stack<double>();
+            Stack<double> stack = new Stack<double>();//стек для работы с числами double
             for (int i = 0; i < Expression.Length; i++)
             {
                 if (double.TryParse(Expression[i], out double value))
@@ -21,15 +24,20 @@ namespace RPNAlgorithm
                 }
                 else
                 {
-                    double topOperand = stack.Pop();
-                    double bottomOperand = stack.Pop();
-                    stack.Push(DoOperation(topOperand, bottomOperand, Expression[i]));
+                    Operation(stack, Expression[i]);
                 }
             }
             return stack.Pop();
         }
 
-        private double DoOperation(double topOperand, double bottomOperand, string Operation)
+        private void Operation(Stack<double> stack,string Act)
+        {
+            double topOperand = stack.Pop();
+            double bottomOperand = stack.Pop();
+            stack.Push(Operation(topOperand, bottomOperand, Act));
+        }
+
+        private double Operation(double topOperand, double bottomOperand, string Operation)
         {
             switch (Operation)
             {

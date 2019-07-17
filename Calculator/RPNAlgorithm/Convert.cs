@@ -8,45 +8,49 @@ namespace RPNAlgorithm
 {
     public static class Convert
     {
+        /// <summary>
+        /// Конвертирует массив строк Инфиксной нотации, в массив строк Постфиксной нотации
+        /// </summary>
+        /// <param name="exp">Исходный массив строк</param>
+        /// <returns></returns>
         public static string[] ToRPN(string[] exp)
         {
-            double value = 0;
             List<string> OutPut = new List<string>();
             Dictionary<string, short> PriorityTable = new Dictionary<string, short>();
             Stack<string> stack = new Stack<string>();
             InitPriorityTable(PriorityTable);
             stack.Push("#");
-            for (int i = 0; i < exp.Length; i++)
+            foreach (string CurrentStr in exp)
             {
-                if(exp[i]=="(")
+                if (CurrentStr == "(")
                 {
-                    stack.Push(exp[i]);
+                    stack.Push(CurrentStr);
                 }
-                else if(exp[i]==")")
+                else if (CurrentStr == ")")
                 {
-                    while(stack.Peek()!="(")
+                    while (stack.Peek() != "(")
                     {
                         OutPut.Add(stack.Pop());
                     }
                     stack.Pop();
                 }
-                else if (double.TryParse(exp[i], out value))
+                else if (double.TryParse(CurrentStr, out double value))
                 {
-                    OutPut.Add(exp[i]);
+                    OutPut.Add(CurrentStr);
                 }
                 else
                 {
-                    if(LeftOperationPriorityMoreThanRight(exp[i],stack.Peek(),PriorityTable))
+                    if (LeftOperationPriorityMoreThanRight(exp[i], stack.Peek(), PriorityTable))
                     {
-                        stack.Push(exp[i]);
+                        stack.Push(CurrentStr);
                     }
                     else
                     {
                         string temp;
-                        if(LeftOperationPriorityMoreThanRight(temp=stack.Pop(),stack.Peek(),PriorityTable))
+                        if (LeftOperationPriorityMoreThanRight(temp = stack.Pop(), stack.Peek(), PriorityTable))
                         {
                             OutPut.Add(temp);
-                            stack.Push(exp[i]);
+                            stack.Push(CurrentStr);
                         }
                     }
                 }
@@ -56,9 +60,9 @@ namespace RPNAlgorithm
             return OutPut.ToArray();
         }
 
-        private static bool LeftOperationPriorityMoreThanRight(string left, string right, Dictionary<string,short> priorityTable)
+        private static bool LeftOperationPriorityMoreThanRight(string left, string right, Dictionary<string, short> priorityTable)
         {
-            if(Math.Max(priorityTable[left],priorityTable[right])==priorityTable[left])
+            if (Math.Max(priorityTable[left], priorityTable[right]) == priorityTable[left])
             {
                 return true;
             }
