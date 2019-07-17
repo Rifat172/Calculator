@@ -3,12 +3,9 @@ using System.Text.RegularExpressions;
 
 namespace SourceExpression
 {
-    public class Parser
+    public static class Parser
     {
-        public string[] ArrayExpression { get => ArrayExpression; }
-        public bool IsParsingError { get => IsParsingError; }
-
-        public string[] Parse(string exp)
+        public static string[] Parse(string exp)
         {            
             List<string> arrExpression = new List<string>();
 
@@ -27,7 +24,7 @@ namespace SourceExpression
             }
             return arrExpression.ToArray();
         }
-        public bool TryParse(string exp, out string[] arrExp)
+        public static bool TryParse(string exp, out string[] arrExp)
         {
             if(Regex.IsMatch(exp,@"[a-z]+|[а-я]",RegexOptions.IgnoreCase))
             {
@@ -37,7 +34,7 @@ namespace SourceExpression
             arrExp = Parse(exp);
             return true;
         }
-        private string Replace(string input,string pattern, string target)
+        private static string Replace(string input,string pattern, string target)
         {
             Regex regex = new Regex(pattern);
             return regex.Replace(input, target);

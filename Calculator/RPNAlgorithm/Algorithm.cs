@@ -13,10 +13,9 @@ namespace RPNAlgorithm
         public double Calc()
         {
             Stack<double> stack = new Stack<double>();
-            double value;
-            for(int i = 0; i < Expression.Length; i++)
+            for (int i = 0; i < Expression.Length; i++)
             {
-                if(double.TryParse(Expression[i],out value))
+                if (double.TryParse(Expression[i], out double value))
                 {
                     stack.Push(value);
                 }
@@ -38,6 +37,10 @@ namespace RPNAlgorithm
                     return bottomOperand + topOperand;
                 case "-":
                     return bottomOperand - topOperand;
+                case "*":
+                    return bottomOperand * topOperand;
+                case "/":
+                    return bottomOperand / topOperand;
                 default:
                     throw new NotImplementedException();
             }
